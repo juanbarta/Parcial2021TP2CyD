@@ -19,4 +19,25 @@ const beers = [
     { name: 'Belgian Wit', abv: 5.4, label: 'https://s3.amazonaws.com/brewerydbapi/beer/3CvVQG/upload_xOMnlK-large.png', type: 'Wheat' },
     { name: 'Stolen Fruit', abv: 4.6, label: 'https://s3.amazonaws.com/brewerydbapi/beer/YGT30k/upload_uVCHP7-large.png', type: 'Wheat' },
 ];
+const newUrl = "https://tecnoshare.sharepoint.com/sites/beer";
+function setLabelFileName(beers){
+  return beers
+    .map(
+      beer => ({...beer, label: [newUrl, getBeerLabel(beer.label), getNewFileName(beer.name, getBeerExtension(beer.label))].join("/")})
+    );
 
+  }
+
+function getBeerLabel(label){
+  return label.split('/').slice(-2).reverse().pop()
+}
+
+function getNewFileName(name, extension){
+  return [name.replace(/ /g, '_'), extension].join('.')
+}
+
+function getBeerExtension(label){
+  return label.split(('.'),-1).pop()
+}
+
+  console.log(setLabelFileName(beers))

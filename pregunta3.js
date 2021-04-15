@@ -3,8 +3,9 @@
 // si la longitud del array es < 3 se debe retornar undefined
 
 const greater3 = nums => {
-    
-}
+    const numberToReturn = 2;
+    return nums.filter((numA, numB) => nums.indexOf(numA) === numB).sort().reverse()[numberToReturn]
+}   
 
 
 // TESTs no modificar

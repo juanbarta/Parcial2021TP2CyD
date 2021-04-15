@@ -13,9 +13,15 @@
     shirts: 10,
     pants: 5,
   }
+const ventaExitosa = 200;
+const ventaFallida = 500;
 
 const sale = function (article, cant){
-  
+  if (inventory[article] >= cant){
+    inventory[article] -= cant
+    return ventaExitosa
+  }else 
+  return ventaFallida
 }
 
 // TESTS (no modificar)
